@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main  # Измените на вашу основную ветку, если она называется иначе
+      - main
   pull_request:
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.9'  # Укажите версию Python
+          python-version: '3.9'
 
       - name: Install dependencies
         run: |
@@ -36,8 +36,8 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}  # Убедитесь, что вы добавили это в секреты
-          password: ${{ secrets.DOCKER_TOKEN }}      # Используем access token вместо пароля
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Push Docker image
         run: |
